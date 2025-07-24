@@ -1,30 +1,57 @@
 # 📱 WhatsApp Group Messaging Automation
 
-A Python script that extracts contact information from WhatsApp group participant images using OCR and sends personalized messages via WhatsApp Web automation.
+**An official tool for IIT Guwahati Alumni Association (IITGAA) group management and member verification**
+
+A Python automation tool that extracts contact information from WhatsApp group participant screenshots using OCR and sends personalized verification messages via WhatsApp Web automation. Built specifically for managing IITG alumni WhatsApp groups and ensuring community authenticity.
 
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue)
 ![Selenium](https://img.shields.io/badge/selenium-4.15-green)
 ![OCR](https://img.shields.io/badge/OCR-tesseract-orange)
 ![uv](https://img.shields.io/badge/uv-enabled-purple)
+![IITG](https://img.shields.io/badge/IITG-Alumni%20Tool-red)
+
+## 🎓 About IITG Alumni Association
+
+This tool is part of the [IIT Guwahati Alumni Association](https://github.com/iitgaa2) digital infrastructure, working alongside:
+- **[alumni-verify-agent](https://github.com/iitgaa2/alumni-verify-agent)** - Alumni verification agent/bot
+- **[alumni-verify-bot](https://github.com/iitgaa2/alumni-verify-bot)** - JavaScript verification bot
+- **[prompts](https://github.com/iitgaa2/prompts)** - Prompts for alumni use and benefit
 
 ## ✨ Features
 
+- 🎓 **Alumni Group Management**: Streamline verification of IITG alumni in WhatsApp groups
 - 🔍 **OCR Contact Extraction**: Extract names and phone numbers from WhatsApp group participant screenshots
 - ✅ **Phone Number Validation**: Validate and format phone numbers using international standards
-- 💬 **Message Personalization**: Use templates with placeholders like `{name}`, `{first_name}`, etc.
-- 🤖 **WhatsApp Web Automation**: Send messages via WhatsApp Web using Selenium
+- 💬 **Verification Message Automation**: Send standardized verification requests to group members
+- 🤖 **WhatsApp Web Automation**: Automated messaging via WhatsApp Web using Selenium
 - ⚡ **Rate Limiting**: Built-in delays (10-30 seconds) between messages to avoid blocks
-- 📊 **Comprehensive Logging**: Detailed logs and execution reports
-- 🎯 **Interactive & CLI Modes**: Easy-to-use interface or command-line operation
+- 📊 **Comprehensive Logging**: Detailed logs and execution reports for audit trails
+- 🎯 **Interactive & CLI Modes**: Easy-to-use interface for group administrators
 - 🔒 **Session Persistence**: Save WhatsApp login for reuse
 - ⚡ **uv Integration**: Ultra-fast dependency management and execution
+- 🛡️ **Duplicate Prevention**: Prevents multiple messages to the same contact
+
+## 🎯 Use Cases
+
+### Primary: Alumni Group Verification
+- **IITG Startup WhatsApp Groups**: Verify members are legitimate IITG alumni
+- **Alumni Network Groups**: Ensure group integrity and prevent spam
+- **Event Groups**: Validate attendee credentials for alumni events
+- **Professional Networks**: Maintain authentic IITG professional communities
+
+### Secondary: General Group Management
+- Welcome messages for new group members
+- Important announcements to verified alumni
+- Event invitations and updates
+- Community building messages
 
 ## 📋 Prerequisites
 
 - **Python 3.8+**
 - **Google Chrome browser**
 - **Tesseract OCR** (for text extraction from images)
-- **WhatsApp account** (your personal number: +1 9493102808)
+- **WhatsApp account** (group administrator account)
+- **IITG alumni group admin privileges**
 
 ## 🚀 Installation
 
@@ -41,7 +68,7 @@ quick-start.bat
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/iitgaa2/whatsapp-notifier.git
 cd whatsapp-notifier
 ```
 
@@ -101,16 +128,14 @@ This project uses **uv** for blazing-fast dependency management:
 - **💾 Disk space efficient** with shared cache
 - **🛠️ Built-in project management** with `pyproject.toml`
 
-**Performance comparison:**
-```bash
-# Traditional pip (slow)
-pip install -r requirements.txt  # ~30-60 seconds
-
-# uv (fast)
-uv sync                          # ~3-5 seconds
-```
-
 ## 📖 Usage
+
+### For IITG Alumni Group Verification
+
+1. **Take Screenshot**: Capture WhatsApp group participant list
+2. **Run Verification**: Use interactive mode for best experience
+3. **Review Messages**: Preview verification messages before sending
+4. **Send & Track**: Automated sending with comprehensive logging
 
 ### Interactive Mode (Recommended)
 ```bash
@@ -123,17 +148,17 @@ python main.py --interactive
 
 ### Command Line Mode
 ```bash
-# Basic usage
-uv run python main.py --image contacts.png
+# Basic alumni verification
+uv run python main.py --image group_participants.png
 
-# With custom message
-uv run python main.py --image contacts.png --message custom_message.txt
+# Dry run (test mode) - recommended first
+uv run python main.py --image group_participants.png --dry-run
 
-# Dry run (test mode)
-uv run python main.py --image contacts.png --dry-run
+# With custom verification message
+uv run python main.py --image group_participants.png --message custom_verification.txt
 
-# Headless mode (background)
-uv run python main.py --image contacts.png --headless
+# Headless mode (for server deployment)
+uv run python main.py --image group_participants.png --headless
 ```
 
 ## 📂 Project Structure
@@ -152,283 +177,294 @@ whatsapp-notifier/
 ├── quick-start.sh         # Quick setup script (macOS/Linux)
 ├── quick-start.bat        # Quick setup script (Windows)
 ├── messages/              # Message templates
-│   └── message.txt        # Default message template
-├── images/                # Input images
-├── logs/                  # Execution logs and reports
+│   └── message.txt        # Default IITG verification template
+├── images/                # Input screenshots
+├── logs/                  # Execution logs and audit trails
 └── downloads/             # Browser downloads
 ```
 
-## 💬 Message Templates
+## 💬 Current IITG Verification Message
 
-### Default Template (`messages/message.txt`)
+The tool is currently configured to send this **official IITG alumni verification message**:
+
+### **Template** (`messages/message.txt`):
 ```
-Hi {name}! 
+Hi {name},
 
-Hope you're doing well. I wanted to reach out to you personally from our WhatsApp group. 
+Hope you're doing well! We're currently in the process of validating the identities of members in the IITG Startup WhatsApp group to ensure it remains focused and relevant to the IIT Guwahati community.
 
-Looking forward to connecting with you soon!
+Could you kindly share the following details by messaging Shomesh (+1 669-214-8103) directly on WhatsApp:
 
-Best regards
-```
+1. Your full name (if not in your profile)
+2. Your affiliation with IITG (alumnus/a, faculty, etc.)
+3. Your involvement in the startup ecosystem (founder, team member, investor, or aspiring to be one)
+4. Your LinkedIn profile link
 
-### Available Placeholders
-- `{name}` - Full contact name
-- `{first_name}` - First name only
-- `{phone}` - Phone number
-- `{location}` - Geographic location (if detected)
-- `{carrier}` - Mobile carrier (if detected)
-- `{country_code}` - Country code
+We'd really appreciate your response within the next 24 hrs. If we don't hear back, we may temporarily remove your number, but you're always welcome to reach out to Shomesh to be added back once verified.
 
-### Custom Message Example
-```
-Hello {first_name},
+Thanks so much for your understanding and support!
 
-This is a personal message from our WhatsApp group. I noticed you're from {location} and wanted to connect.
-
-Your number {phone} was added to our group for community updates.
-
-Best regards,
-Group Admin
+Warm regards,
+Community Member
 ```
 
-## 🖼️ Image Format
+### **Message Characteristics:**
+- ✅ **Professional** - Official verification tone
+- ✅ **IITG-specific** - Focuses on IIT Guwahati community
+- ✅ **Clear Requirements** - Specific verification criteria
+- ✅ **Contact Information** - Direct verification contact
+- ✅ **Respectful Timeline** - 24-hour response window
+- ✅ **Transparent Process** - Explains removal/re-addition policy
+
+### **Real Example** (personalized):
+> "Hi Rajesh Kumar,
+> 
+> Hope you're doing well! We're currently in the process of validating the identities of members in the IITG Startup WhatsApp group to ensure it remains focused and relevant to the IIT Guwahati community.
+> 
+> Could you kindly share the following details by messaging Shomesh (+1 669-214-8103) directly on WhatsApp:
+> 
+> 1. Your full name (if not in your profile)
+> 2. Your affiliation with IITG (alumnus/a, faculty, etc.)
+> 3. Your involvement in the startup ecosystem (founder, team member, investor, or aspiring to be one)
+> 4. Your LinkedIn profile link
+> 
+> We'd really appreciate your response within the next 24 hrs. If we don't hear back, we may temporarily remove your number, but you're always welcome to reach out to Shomesh to be added back once verified.
+> 
+> Thanks so much for your understanding and support!
+> 
+> Warm regards,
+> Community Member"
+
+## 🖼️ WhatsApp Screenshot Format
 
 The script expects WhatsApp group participant screenshots with this format:
 ```
-~ Contact Name 1
-+1 234 567 8901
-
-~ Contact Name 2  
+~ Rajesh Kumar
 +91 98765 43210
 
-~ Contact Name 3
+~ Priya Sharma  
++91 87654 32109
+
+~ Dr. Amit Singh
 +1 (555) 123-4567
 ```
 
 **Tips for better OCR results:**
-- High resolution screenshots
+- High resolution screenshots (1080p or higher)
 - Good contrast (dark text on light background)
 - Avoid blurry or cropped images
 - PNG or JPG format
+- Full contact names and phone numbers visible
 
 ## ⚙️ Configuration
 
-Edit `config.py` to customize:
+Edit `config.py` to customize for your IITG group:
 
 ```python
-# Message timing
+# Message timing (be respectful)
 MIN_DELAY_BETWEEN_MESSAGES = 10  # seconds
 MAX_DELAY_BETWEEN_MESSAGES = 30  # seconds
 
 # Browser settings
-HEADLESS_MODE = False  # Set True for background operation
+HEADLESS_MODE = False  # Set True for server deployment
 CHROME_PROFILE_PATH = None  # Set path for session persistence
 
-# OCR settings
+# OCR settings (optimized for WhatsApp screenshots)
 TESSERACT_CONFIG = '--oem 3 --psm 6'
 
-# Phone validation
-DEFAULT_COUNTRY_CODE = "US"
+# Phone validation (international alumni)
+DEFAULT_COUNTRY_CODE = "IN"  # India, but supports international
 ```
 
-## 🔐 Security & Best Practices
+## 🔐 IITG Alumni Group Guidelines
 
-### Rate Limiting
+### Rate Limiting & Best Practices
 - **Built-in delays**: 10-30 seconds between messages
-- **Recommended frequency**: 2-3 times per week max
-- **Batch size**: 10-15 contacts per session
+- **Recommended frequency**: Use only when needed for verification
+- **Batch size**: 10-15 contacts per session maximum
+- **Time of use**: Respect time zones of international alumni
 
-### WhatsApp Terms Compliance
-- ✅ Only message group participants you admin
-- ✅ Use personal, non-promotional messages
-- ✅ Respect user privacy and consent
-- ❌ Don't send spam or marketing messages
-- ❌ Don't exceed reasonable messaging limits
+### Alumni Community Standards
+- ✅ Only use for legitimate IITG alumni groups
+- ✅ Verify only in groups you administer
+- ✅ Use for community building and verification
+- ✅ Respect privacy and alumni preferences
+- ❌ Don't send promotional or commercial messages
+- ❌ Don't exceed reasonable verification frequencies
+- ❌ Don't use for non-IITG related groups
 
-### Session Security
-- WhatsApp session is saved locally for convenience
-- Browser profile can be customized in config
-- Logs contain contact information - keep secure
+### Verification Process Compliance
+- Ensure you have admin rights in the group
+- Only verify members who joined through IITG networks
+- Maintain confidentiality of verification responses
+- Follow up appropriately with verified members
+
+## 🛡️ Security & Privacy
+
+### Data Protection
+- **Local Processing**: All OCR and contact extraction happens locally
+- **No Data Storage**: Contact information is not permanently stored
+- **Audit Trails**: Comprehensive logging for accountability
+- **Session Security**: WhatsApp sessions are local and secure
+
+### IITG Alumni Privacy
+- Verification messages include clear opt-out information
+- Contact information is used only for verification purposes
+- Compliance with alumni association privacy standards
+- Transparent about data usage and verification process
 
 ## 🐛 Troubleshooting
 
-### Common Issues
+### Common Alumni Verification Issues
 
-**1. "ChromeDriver not found"**
+**1. "No contacts found in WhatsApp screenshot"**
+- Ensure screenshot shows participant list clearly
+- Check image quality and contrast
+- Verify contact names and numbers are visible
+- Try cropping to focus on participant list
+
+**2. "Verification message not personalized correctly"**
+- Check that `{name}` placeholder is in template
+- Verify OCR extracted names correctly
+- Review logs for name extraction issues
+
+**3. "WhatsApp Web automation failed"**
+- Ensure you're logged into WhatsApp Web as group admin
+- Check Chrome browser is updated
+- Verify group admin permissions
+- Check internet connectivity
+
+**4. "Rate limiting or account restrictions"**
+- Reduce message frequency (increase delays)
+- Use smaller batches (5-10 contacts)
+- Wait between verification sessions
+- Ensure messages comply with WhatsApp terms
+
+### Debug Mode for Alumni Admins
 ```bash
-# ChromeDriver is auto-installed via webdriver-manager
-# If issues persist, download manually from:
-# https://chromedriver.chromium.org/
-```
-
-**2. "Tesseract not found"**
-```bash
-# Make sure tesseract is in PATH
-tesseract --version
-
-# On Windows, add installation directory to PATH
-# Default: C:\Program Files\Tesseract-OCR\
-```
-
-**3. "No contacts found in image"**
-- Check image quality and format
-- Ensure text is clearly visible
-- Try preprocessing the image (crop, enhance contrast)
-
-**4. "WhatsApp login failed"**
-- Ensure WhatsApp Web works in regular browser
-- Check internet connection
-- Try clearing browser data
-
-**5. "Contact not found"**
-- Contact names must match exactly as shown in WhatsApp
-- Check for special characters or emojis in names
-- Try using phone number instead of name
-
-### Debug Mode
-```bash
-# Run with verbose logging (uv)
+# Test verification flow without sending
 uv run python main.py --interactive --dry-run
 
-# Or with regular python
-python main.py --interactive --dry-run
+# Check OCR extraction quality
+uv run python -c "from ocr_extractor import ContactExtractor; print(ContactExtractor().preview_ocr_result('your_screenshot.png'))"
 ```
 
-Check logs in `logs/` directory for detailed information.
-
-## 📊 Example Output
+## 📊 Example IITG Verification Session
 
 ```
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
-║           📱 WhatsApp Group Messaging Automation 📱           ║
+║           📱 IITG Alumni Group Verification Tool 📱           ║
 ║                                                               ║
-║  Extract contacts from images and send personalized messages  ║
+║  Extract contacts from screenshots and send verification      ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
-📸 Step 1: Extract Contacts from Image
-✅ Found 12 contacts
+📸 Step 1: Extract Contacts from IITG Group Screenshot
+✅ Found 12 potential alumni contacts
 
-✅ Step 2: Validate Contacts  
-✅ 10 valid contacts
+✅ Step 2: Validate Contact Information  
+✅ 10 valid contacts with proper phone numbers
 
-📋 Message Preview
-Template length: 156 characters
-Word count: 28 words
-Placeholders: name
+📋 Step 3: Verification Message Preview
+Template: IITG Alumni Verification (843 characters)
+Verification contact: Shomesh (+1 669-214-8103)
+Response deadline: 24 hours
 
-Preview 1 - John Doe:
-Phone: +1234567890
-Message (148 chars):
-Hi John Doe! 
+Preview - Rajesh Kumar:
+Phone: +919876543210
+Message: Hi Rajesh Kumar,
 
-Hope you're doing well. I wanted to reach out to you personally from our WhatsApp group. 
+Hope you're doing well! We're currently in the process of validating...
 
-Looking forward to connecting with you soon!
-
-Best regards
-
-🚀 Step 4: Send Messages
-✓ Message sent to John Doe (1/10)
+🚀 Step 4: Send Verification Messages
+✓ Verification sent to Rajesh Kumar (1/10)
 Waiting 15 seconds before next message...
-✓ Message sent to Jane Smith (2/10)
+✓ Verification sent to Priya Sharma (2/10)
 ...
 
-📊 Results Summary
+📊 IITG Verification Results
 ✅ Successfully sent: 9
 ❌ Failed to send: 1
 📈 Success rate: 90.0%
+
+📝 Next Steps for Group Admin:
+1. Monitor verification responses to Shomesh
+2. Follow up with non-responders after 24hrs
+3. Update group membership based on verification
+4. Maintain verification records for audit
 ```
 
-## 🤝 Contributing
+## 🤝 Contributing to IITG Alumni Tools
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+2. Create a feature branch (`feature/alumni-enhancement`)
+3. Follow IITG coding standards
+4. Test with sample alumni data
+5. Submit a pull request to [iitgaa2 organization](https://github.com/iitgaa2)
 
-## ⚠️ Disclaimer
+### Development Guidelines
+- Maintain alumni privacy and security standards
+- Follow IITG Alumni Association guidelines
+- Test thoroughly with dummy data
+- Document alumni-specific features
+- Coordinate with other [iitgaa2 tools](https://github.com/iitgaa2)
 
-This tool is for personal use with your own WhatsApp groups. Users are responsible for:
-- Complying with WhatsApp Terms of Service
-- Respecting recipient privacy and consent
-- Following local laws and regulations
-- Using appropriate message content and frequency
+## ⚠️ Usage Guidelines & Disclaimer
 
-The authors are not responsible for any misuse or violations.
+### For IITG Alumni Administrators
+This tool is designed specifically for:
+- **IITG Alumni Association** official group management
+- **Legitimate verification** of alumni group members
+- **Community building** within IITG networks
+- **Maintaining group integrity** and authenticity
+
+### Compliance Requirements
+Users must ensure:
+- ✅ Compliance with WhatsApp Terms of Service
+- ✅ Respect for alumni privacy and consent
+- ✅ Following IITG Alumni Association guidelines
+- ✅ Using appropriate verification messaging
+- ✅ Maintaining confidentiality of verification data
+
+### Liability
+The IITG Alumni Association and tool authors are not responsible for:
+- Misuse of verification tools
+- Violations of WhatsApp policies
+- Privacy breaches or data misuse
+- Non-compliance with local regulations
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙋‍♂️ Support
+**© 2024 IIT Guwahati Alumni Association**
 
-For issues or questions:
-1. Check the troubleshooting section
-2. Review logs in `logs/` directory  
-3. Create an issue with detailed information
-4. Include error messages and log snippets
+## 🎓 IITG Alumni Support
 
-## 🚀 Next Steps
+For IITG-specific issues or alumni verification questions:
 
-1. **Quick setup** with `./quick-start.sh` (or `quick-start.bat` on Windows)
-2. **Test with a small group** using dry-run mode first  
-3. **Customize your message** template in `messages/message.txt`
-4. **Run in interactive mode** for the best experience: `uv run python main.py --interactive`
-5. **Check logs/** directory for detailed reports
+1. **Technical Issues**: Create an issue in this repository
+2. **Alumni Verification**: Contact the verification coordinator
+3. **Group Management**: Reach out to IITG Alumni Association
+4. **Tool Updates**: Monitor [iitgaa2 organization](https://github.com/iitgaa2) repositories
+
+### Related IITG Alumni Tools
+- **[alumni-verify-agent](https://github.com/iitgaa2/alumni-verify-agent)** - Core verification system
+- **[alumni-verify-bot](https://github.com/iitgaa2/alumni-verify-bot)** - Automated verification bot
+- **[prompts](https://github.com/iitgaa2/prompts)** - Alumni communication templates
+
+## 🚀 Quick Start for IITG Admins
+
+1. **Setup**: Run `./quick-start.sh` (or `quick-start.bat` on Windows)
+2. **Test**: Use dry-run mode first: `uv run python main.py --dry-run --interactive`
+3. **Screenshot**: Take clear WhatsApp group participant screenshot
+4. **Verify**: Run verification: `uv run python main.py --interactive`
+5. **Monitor**: Check logs and coordinate with verification team
+6. **Follow-up**: Track responses and update group membership accordingly
 
 ---
 
-**Happy messaging! 📱✨** 
+**Jai Hind! 🇮🇳 | IIT Guwahati Alumni Association | Building Tomorrow's Networks Today 🎓**
 
-## 📨 **Current Message Being Sent:**
-
-The automation is currently configured to send this **personal, friendly message** to each contact:
-
-### **Template:**
-```
-Hi {name}! 
-
-Hope you're doing well. I wanted to reach out to you personally from our WhatsApp group. 
-
-Looking forward to connecting with you soon!
-
-Best regards
-```
-
-### **Real Examples (from your contacts):**
-
-**To Ajay Krishna:**
-> "Hi Ajay Krishna! 
-> 
-> Hope you're doing well. I wanted to reach out to you personally from our WhatsApp group. 
-> 
-> Looking forward to connecting with you soon!
-> 
-> Best regards"
-
-**To Akanksha:**
-> "Hi Akanksha! 
-> 
-> Hope you're doing well. I wanted to reach out to you personally from our WhatsApp group. 
-> 
-> Looking forward to connecting with you soon!
-> 
-> Best regards"
-
-## 🎯 **Message Characteristics:**
-- ✅ **Personal** - Uses each person's name
-- ✅ **Friendly** - Warm, conversational tone  
-- ✅ **Group Context** - Mentions it's from the WhatsApp group
-- ✅ **Non-promotional** - Not spammy or sales-focused
-- ✅ **Appropriate Length** - ~162 characters, perfect for WhatsApp
-
-## 📝 **Want to customize it?**
-You can edit the message by changing `messages/message.txt` or create a custom message file and use:
-```bash
-uv run python main.py --image images/contacts.jpeg --message custom_message.txt
-```
-
-This message is perfect for a **WhatsApp group admin** reaching out personally to group members! 👍 
+*This tool helps maintain the integrity and authenticity of IITG alumni WhatsApp communities, ensuring our networks remain valuable resources for all alumni.* 
