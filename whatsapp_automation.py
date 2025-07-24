@@ -662,7 +662,7 @@ class WhatsAppAutomation:
         
         Args:
             contacts: List of contact dictionaries with 'name' and 'phone' keys
-            message_template: Message template (can include {name} placeholder)
+            message_template: Message template (same message sent to all contacts)
             
         Returns:
             Dictionary with contact names as keys and success status as values
@@ -674,8 +674,8 @@ class WhatsAppAutomation:
             phone_number = contact['phone']
             
             try:
-                # Personalize message
-                personalized_message = message_template.format(name=contact_name)
+                # Use the same message for all contacts (no personalization)
+                personalized_message = message_template
                 
                 # Send message using phone number
                 success = self.send_message_to_contact(phone_number, contact_name, personalized_message)

@@ -189,7 +189,7 @@ The tool is currently configured to send this **official IITG alumni verificatio
 
 ### **Template** (`messages/message.txt`):
 ```
-Hi {name},
+Hello community member,
 
 Hope you're doing well! We're currently in the process of validating the identities of members in the IITG Startup WhatsApp group to ensure it remains focused and relevant to the IIT Guwahati community.
 
@@ -211,13 +211,14 @@ Community Member
 ### **Message Characteristics:**
 - ✅ **Professional** - Official verification tone
 - ✅ **IITG-specific** - Focuses on IIT Guwahati community
+- ✅ **Non-personalized** - Same message to all community members
 - ✅ **Clear Requirements** - Specific verification criteria
 - ✅ **Contact Information** - Direct verification contact
 - ✅ **Respectful Timeline** - 24-hour response window
 - ✅ **Transparent Process** - Explains removal/re-addition policy
 
-### **Real Example** (personalized):
-> "Hi Rajesh Kumar,
+### **Real Example** (sent to all members):
+> "Hello community member,
 > 
 > Hope you're doing well! We're currently in the process of validating the identities of members in the IITG Startup WhatsApp group to ensure it remains focused and relevant to the IIT Guwahati community.
 > 
@@ -371,11 +372,11 @@ Template: IITG Alumni Verification (843 characters)
 Verification contact: Shomesh (+1 669-214-8103)
 Response deadline: 24 hours
 
-Preview - Rajesh Kumar:
-Phone: +919876543210
-Message: Hi Rajesh Kumar,
-
-Hope you're doing well! We're currently in the process of validating...
+ Preview - Rajesh Kumar:
+ Phone: +919876543210
+ Message: Hello community member,
+ 
+ Hope you're doing well! We're currently in the process of validating...
 
 🚀 Step 4: Send Verification Messages
 ✓ Verification sent to Rajesh Kumar (1/10)
