@@ -193,7 +193,7 @@ Hello community member,
 
 Hope you're doing well! We're currently in the process of validating the identities of members in the IITG Startup WhatsApp group to ensure it remains focused and relevant to the IIT Guwahati community.
 
-Could you kindly share the following details by messaging Shomesh (+1 669-214-8103) directly on WhatsApp:
+Could you kindly share the following details by *MESSAGING SHOMESH (+1 669-214-8103) DIRECTLY ON WHATSAPP:*
 
 1. Your full name (if not in your profile)
 2. Your affiliation with IITG (alumnus/a, faculty, etc.)
@@ -204,6 +204,10 @@ We'd really appreciate your response within the next 24 hrs. If we don't hear ba
 
 Thanks so much for your understanding and support!
 
+*THIS IS AN AUTOMATED MESSAGE. DO NOT REPLY TO ME HERE.*
+
+*RESPOND TO SHOMESH (+1 669-214-8103)*
+
 Warm regards,
 Community Member
 ```
@@ -212,8 +216,9 @@ Community Member
 - ✅ **Professional** - Official verification tone
 - ✅ **IITG-specific** - Focuses on IIT Guwahati community
 - ✅ **Non-personalized** - Same message to all community members
-- ✅ **Clear Requirements** - Specific verification criteria
-- ✅ **Contact Information** - Direct verification contact
+- ✅ **Clear Instructions** - Bold formatting for important contact info
+- ✅ **Contact Information** - Direct verification contact (emphasized)
+- ✅ **Automated Warning** - Clear notice not to reply to sender
 - ✅ **Respectful Timeline** - 24-hour response window
 - ✅ **Transparent Process** - Explains removal/re-addition policy
 
@@ -222,7 +227,7 @@ Community Member
 > 
 > Hope you're doing well! We're currently in the process of validating the identities of members in the IITG Startup WhatsApp group to ensure it remains focused and relevant to the IIT Guwahati community.
 > 
-> Could you kindly share the following details by messaging Shomesh (+1 669-214-8103) directly on WhatsApp:
+> Could you kindly share the following details by **MESSAGING SHOMESH (+1 669-214-8103) DIRECTLY ON WHATSAPP:**
 > 
 > 1. Your full name (if not in your profile)
 > 2. Your affiliation with IITG (alumnus/a, faculty, etc.)
@@ -232,6 +237,10 @@ Community Member
 > We'd really appreciate your response within the next 24 hrs. If we don't hear back, we may temporarily remove your number, but you're always welcome to reach out to Shomesh to be added back once verified.
 > 
 > Thanks so much for your understanding and support!
+> 
+> **THIS IS AN AUTOMATED MESSAGE. DO NOT REPLY TO ME HERE.**
+> 
+> **RESPOND TO SHOMESH (+1 669-214-8103)**
 > 
 > Warm regards,
 > Community Member"
