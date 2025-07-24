@@ -1,0 +1,10 @@
+# WhatsApp Automation Dependencies - Python 3.13 Compatible
+selenium>=4.15.2
+webdriver-manager>=4.0.1
+Pillow>=10.2.0
+pytesseract>=0.3.10
+opencv-python>=4.9.0.80
+phonenumbers>=8.13.27
+requests>=2.31.0
+python-dotenv>=1.0.0
+colorama>=0.4.6 
